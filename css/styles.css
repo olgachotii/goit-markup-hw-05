@@ -14,6 +14,8 @@
   --border-first-color: #ececec;
   --border-second-color: #eeeeee;
   --icon-color: #afb1b8;
+  --modal-background-color: rgba(0, 0, 0, 0.2);
+  --modal-border-color: rgba(0, 0, 0, 0.1);
 
   --shadow-card: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -489,6 +491,8 @@ ul {
 .example-list .card-thumb {
   position: relative;
   max-width: 100%;
+
+  /* overflow: hidden; */
 }
 
 .example-list .card-content {
@@ -511,8 +515,11 @@ ul {
 
 .content-hidden {
   position: absolute;
+  width: 100%;
+  height: 100%;
   padding: 63px 24px;
-  top: 0;
+
+  /* transform: translate(0, 295px); */
 
   background-color: rgba(33, 150, 243, 0.9);
 }
@@ -595,4 +602,49 @@ ul {
 .appeal .link {
   fill: var(--wight-color);
   background-color: var(--footer-icon-background-color);
+}
+
+/* modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--modal-background-color);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--wight-color);
+}
+
+.backdrop .button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--modal-border-color);
+  background-color: var(--wight-color);
 }
