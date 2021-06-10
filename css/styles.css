@@ -127,20 +127,28 @@ ul {
   margin-right: 50px;
 }
 
-.site-nav .link {
-  display: block;
-  position: relative;
-
-  color: var(--title-text-color);
-
+.site-nav .link,
+.auth-nav .link {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav .link {
+  display: block;
+
+  color: var(--title-text-color);
 }
 
 .site-nav .active {
+  position: relative;
+
   color: var(--accent-first-color);
 }
 
@@ -177,12 +185,6 @@ ul {
   align-items: center;
 
   color: var(--primaru-text-color);
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  text-decoration: none;
 }
 
 .site-nav .link:hover,
@@ -236,6 +238,8 @@ ul {
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.06em;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero.section .button:hover,
@@ -333,6 +337,9 @@ ul {
 
   color: var(--title-text-color);
   background-color: var(--section-second-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-works .button:hover,
@@ -400,11 +407,14 @@ ul {
   border-radius: 50%;
 
   fill: currentColor;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icons .link:hover,
 .icons .link:focus {
-  fill: var(--wight-color);
+  color: var(--wight-color);
   background-color: var(--accent-first-color);
 }
 
@@ -438,6 +448,8 @@ ul {
   border-radius: 4px;
 
   color: var(--icon-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients .link:hover,
@@ -455,6 +467,10 @@ ul {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+}
+
+.list-works .button {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-works .button:hover,
@@ -481,6 +497,8 @@ ul {
 .example-list .link {
   text-decoration: none;
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .example-list .link:hover,
@@ -491,8 +509,7 @@ ul {
 .example-list .card-thumb {
   position: relative;
   max-width: 100%;
-
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .example-list .card-content {
@@ -517,11 +534,17 @@ ul {
   position: absolute;
   width: 100%;
   height: 100%;
+  transform: none;
   padding: 63px 24px;
 
-  /* transform: translate(0, 295px); */
-
   background-color: rgba(33, 150, 243, 0.9);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.example-list .link:hover .content-hidden,
+.example-list .link:focus .content-hidden {
+  transform: translatey(-100%);
 }
 
 .example-list .text-hidden {
@@ -613,7 +636,10 @@ ul {
   width: 100%;
   height: 100%;
 
+  opacity: 1;
   background-color: var(--modal-background-color);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -621,16 +647,22 @@ ul {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 .backdrop .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
 
   background-color: var(--wight-color);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop .button {
